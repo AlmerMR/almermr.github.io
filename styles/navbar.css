@@ -1,0 +1,42 @@
+.navbar {
+    height: 65px;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(13, 13, 13, 0.93);
+    align-items: center;
+    text-align: center;
+    font-size: 24px;
+}
+
+.navbar-item {
+    width: 146px;
+    height: 55px;
+    padding: 15px;
+    border: 0;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0);
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+
+
+.navbar-item:hover {
+    font-weight: 400;
+    width: 148px;
+    transition: 0.15s;
+}
+
+.navbar-centering {
+    flex: 1;
+}
+
+.navbar-margin {
+    height: 65px;
+}

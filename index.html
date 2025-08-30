@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<title>Portfolio</title>
+
+		<meta charset="UTF-8">  
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="styles/body.css">
+		<link rel="stylesheet" href="styles/navbar.css">
+		<link rel="stylesheet" href="styles/footer.css">
+
+	</head>
+	<body>
+		<div class="navbar">
+			<div class="navbar-centering"></div>
+      <button class="navbar-item">
+			 <a class="navbar-item" href="index.html">Accueil</a>
+      </button>    
+			<button class="navbar-item">
+				<a class="navbar-item" href="index.html#projets">Projets</a>
+			</button>
+			<button class="navbar-item">
+				<a class="navbar-item" href="index.html#galerie">Galerie</a> 
+			</button>
+			<button class="navbar-item">
+				<a class="navbar-item" href="index.html#contact">Contact</a>   
+			</button>
+			<div class="navbar-centering"></div>	
+		</div>
+		<div class="navbar-margin">
+		</div>   
+		<div class="block-clear">
+			<div class="block-centering"> 
+				<img class="img-profile-pic" src="images/home/ProfilePic.jpg">
+				<p class="p-bold">Alexis Gabriel Aubut</p>
+			</div>		
+		</div>
+		<div class="block-clear">
+			<h1>Projet : Bras robot 6 axes</h1>
+			<p>Démonstration vidéo du robot</p>
+			<iframe width="900" height="506"
+				src="https://www.youtube.com/embed/1GSV_00rKhU?vq=hd1080">
+			</iframe>		
+		</div>
+		<div class="block-dark" id="projets">
+			<div class="block-centering">
+				<h2>Le projet est divisé en parties</h2>
+				<p>Appuyer sur une tuile pour en savoir plus</p>
+				<div class="block-flex-row">
+					<div>
+						<a href="projects/six-axes-robot-arm-stepper/electrical.html">
+							<img class="img-quad-link" src="images/home/TileElectrical.webp" alt="Tuile pour en savoir plus sur l'éléctronique du robot">
+						</a>
+					</div>
+					<div class="img-gap"></div>
+					<div>
+						<a href="projects/six-axes-robot-arm-stepper/embbeded.html">
+							<img class="img-quad-link" src="images/home/TileEmbbeded.webp" alt="Tuile pour en savoir plus sur la programmation embarquée du robot">
+						</a>
+					</div>
+				</div>
+				<br>
+				<div class="block-flex-row">
+					<div>
+						<img onclick="showTileSoftware()" class="img-quad-link" src="images/home/TileSoftware.webp" alt="Tuile pour en savoir plus sur l'interface graphique du robot">
+						<script>
+							function showTileSoftware() {
+								alert("La section de l'interface utilisateur n'est pas encore contruite!");
+							}
+						</script>
+					</div>
+					<div class="img-gap"></div>
+					<div>
+						<img onclick="showTileMecanical()" class="img-quad-link" src="images/home/TileMecanical.webp" alt="Tuile pour en savoir plus sur la mécanique du robot">
+						<script>
+							function showTileMecanical() {
+								alert("La section mécanique n'est pas encore contruite!");
+							}
+						</script>
+					</div>
+				</div>
+			</div>		
+		</div>
+		<div class="block-clear" id="galerie">
+			<h2>Galerie du projet</h2>
+			<br>
+			<img src="images/home/RobotMain.webp">
+			<br><br> 	
+			<img src="images/home/RobotTilt.webp"> 
+			<br><br> 
+		</div>
+		<div class="block-dark" id="contact">
+			<div class="block-centering">
+				<h2>Contact</h2>
+				<div class="block-flex-row-center">
+					<div class="div-contact-email">
+						<p>Email : <a href="mailto:alexis.gabriel-aubut.1@ens.etsmtl.ca">alexis.gabriel-aubut.1@ens.etsmtl.ca</a></p>
+					</div>
+					<div class="div-contact-linkedin">
+						<a href="https://www.linkedin.com/in/alexis-gabriel-aubut-03b821342/" target="_blank"><img class="img-flex-logo" src="images/home/LinkedInLogo.png" alt="Lien vers mon compte LinkedIn"></a>
+					</div>
+				</div>
+			</div>		
+		</div>
+		<br><br>
+		<div class="footer-div">
+			<p class="footer-p">© 2025 Alexis Gabriel Aubut</p>
+		</div>	
+	</body>
+</html>

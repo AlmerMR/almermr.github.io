@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<title>Portfolio</title>
+
+		<meta charset="UTF-8">  
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="../../styles/body.css">
+		<link rel="stylesheet" href="../../styles/navbar.css">
+		<link rel="stylesheet" href="../../styles/footer.css">
+
+	</head>
+	<body>
+		<div class="navbar">
+			<div class="navbar-centering"></div>
+      <button class="navbar-item">
+			 <a class="navbar-item" href="../../index.html">Accueil</a>
+      </button>    
+			<button class="navbar-item">
+				<a class="navbar-item" href="../../index.html#projets">Projets</a>
+			</button>
+			<button class="navbar-item">
+				<a class="navbar-item" href="../../index.html#galerie">Galerie</a> 
+			</button>
+			<button class="navbar-item">
+				<a class="navbar-item" href="../../index.html#contact">Contact</a>   
+			</button>
+			<div class="navbar-centering"></div>	
+		</div>
+		<div class="navbar-margin">
+		</div>   
+		<div class="block-clear">
+			<div class="block-centering"> 
+				<h1>Circuit imprimé du contrôleur</h1>
+				<img src="../../images/projects/six-axes-robot-arm-stepper/electrical/PCB_3D_PERSP_ALPHA.webp" alt="Rendu 3D en perspective du circuit imprimé">
+				<p>Voici le circuit imprimé du robot concu sur le logicel Altium Designer</p>
+			</div>		
+		</div>
+		<div class="block-dark">
+			<div class="block-centering">
+				<div class="block-flex-row">
+					<div>
+						<h2 class="h2-left">Pourquoi ?</h2>
+						<p class="p-justified-right-margin">Réaliser un prototype du circuit sur platine m&#39;a permis de pouvoir vérifier rapidement son fonctionnement et d&#39;apporter certaines modifications. Éventuellement, je me suis rendu au point où le système effectuait son travail sans problème. Cependant, le circuit et le câblage étaient exposés, ce qui créait un risque d&#39;endommager les composantes tout en affectant l&#39;esthétique du robot.</p>
+						<p class="p-justified-right-margin-bold">Le but était de réaliser un circuit plus compacte et mieux organisé afin de l&#39;intégrer dans la base du robot.</p>
+					</div>
+					<img src="../../images/projects/six-axes-robot-arm-stepper/electrical/RobotWiringMess.webp" alt="Circuit électrique exposé du robot">
+				</div>
+			</div>		
+		</div>
+		<div class="block-clear">
+			<div class="block-centering"> 
+				<h2>Schéma bloc du circuit</h2>
+				<img class="img-high-margin" src="../../images/projects/six-axes-robot-arm-stepper/electrical/Schéma Bloc PCB Robot 1.webp" alt="Schéma bloc du circuit du robot">	
+				<p class="p-list-title">Caractéristiques:</p>
+				<ul>
+					<li>Encodeurs absolus qui permettent de lire l&#39;orientation des joints au démarrage du robot (aucune procédure de mise à l&#39;origine « homing » requise).</li>
+					<li>2 entrées opto-isolées pour connecter des capteurs au robot.</li>
+					<li>2 sorties opto-isolées avec diode de roue libre pour connecter des appareils solénoïdes au robot (tiroirs pneumatiques, relais, etc.)</li>
+					<li>Sortie 24V DC pour contrôler les freins moteurs.</li>
+					<li>6 entraînements (« drives ») pour moteur pas-à-pas (moins coûteux et complexe que des sevos-moteurs) alimentés par 24V DC.</li>
+				</ul> 
+			</div>		
+		</div>
+		<div class="block-clear">
+			<div class="block-centering"> 
+				<h2>Calculs et recherche</h1>
+				<img class="img-low-margin" src="../../images/projects/six-axes-robot-arm-stepper/electrical/Schematic_Outputs 1.webp" alt="Schéma d'une des sorties isolées">	
+				<p class="p-justified">Pour les sorties, le prototype utilisait des relais (modules déjà construits achetés en ligne). Cependant, pendant la création du schéma du PCB, j&#39;ai décidé de concevoir un contrôle par transistor. J&#39;ai commencé par chercher les composantes les moins coûteuses disponibles sur le site de mon fabricant de circuit imprimé (JLCPCB). Ensuite, j&#39;ai cherché dans les « datasheets » des composantes afin de trouver certaines informations pour éventuellement calculer les valeurs des résistances.</p>
+			</div>		
+		</div>
+		<div class="block-clear">
+			<div class="block-centering"> 
+				<h2>Disposition des composantes</h2>
+				<img class="img-high-margin" src="../../images/projects/six-axes-robot-arm-stepper/electrical/PCB Layout 1.webp" alt="Schéma des différentes partie du PCB">	
+				<p class="p-list-title">Circuit imprimé à 4 couches ; les deux couches du millieu sont des plans (GND et 3.3V).</p>
+				<ul>
+					<li>L&#39;alimentation 3.3V provient de la connection USB sur le circuit imprimé du microcontrolleur (Teensy 4.1).</li>
+					<li>L&#39;alimentation 24V fournie au PCB doit être régulée.</li>
+				</ul>
+				<div class="block-flex-row">
+					<div>
+						<img class="img-quad" src="../../images/projects/six-axes-robot-arm-stepper/electrical/PCB_ALL 1.webp" alt="Schéma avec couche d&#39;impression">
+						<p class="img-description">Schéma avec couche d&#39;impression</p>
+					</div>
+					<div class="img-gap"></div>
+					<div>
+						<img class="img-quad" src="../../images/projects/six-axes-robot-arm-stepper/electrical/PCB_ALL_WITHOUT_COMP 1.webp" alt="Schéma sans couche d&#39;impression">
+						<p class="img-description">Schéma sans couche d&#39;impression</p>
+					</div>
+				</div>
+				<div class="block-flex-row">
+					<div>
+						<img class="img-quad" src="../../images/projects/six-axes-robot-arm-stepper/electrical/PCB_FIRST 1.webp" alt="Schéma de la première couche">
+						<p class="img-description">Schéma de la première couche</p>
+					</div>
+					<div class="img-gap"></div>
+					<div>
+						<img class="img-quad" src="../../images/projects/six-axes-robot-arm-stepper/electrical/PCB_LAST 1.webp" alt="Schéma de la dernière couche">
+						<p class="img-description">Schéma de la dernière couche</p>
+					</div>
+				</div> 
+			</div>		
+		</div>
+		<div class="block-clear">
+			<div class="block-centering"> 
+				<h2>Construction et assemblage</h2>
+				<p class="p-justified">J&#39;ai fais construire et assembler le circuit imprimé par un fabricant (JLCPCB) Voici des photos du produit complèté :</p>
+				<div class="block-flex-row">
+					<div>
+						<img class="img-quad" src="../../images/projects/six-axes-robot-arm-stepper/electrical/PCB_front 1.webp" alt="Photo du dessus du PCB">
+					</div>
+					<div class="img-gap"></div>
+					<div>
+						<img class="img-quad" src="../../images/projects/six-axes-robot-arm-stepper/electrical/PCB _side1.webp" alt="Photo en angle du PCB">
+					</div>
+				</div> 
+			</div>		
+		</div>
+		<div class="block-dark">
+			<div class="block-centering">
+				<h2 class="h2-left">Résultats</h2>
+				<div class="block-flex-row-center">
+					<img class="img-flex" src="../../images/projects/six-axes-robot-arm-stepper/electrical/WiringMess.webp" alt="Circuit électrique avant PCB">
+					<p class="right-arrow">→</p>
+					<img class="img-flex" src="../../images/projects/six-axes-robot-arm-stepper/electrical/WiringAfter 1.webp" alt="Circuit électrique après PCB">
+				</div>
+				<p class="p-justified">Le robot parait maintenant beaucoup plus propre.</p>
+			</div>		
+		</div>
+		<div class="footer-div">
+			<p class="footer-p">© 2025 Alexis Gabriel Aubut</p>
+		</div>	
+	</body>
+</html>

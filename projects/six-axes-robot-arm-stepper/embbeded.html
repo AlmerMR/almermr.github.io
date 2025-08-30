@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<title>Portfolio</title>
+
+		<meta charset="UTF-8">  
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="../../styles/body.css">
+		<link rel="stylesheet" href="../../styles/navbar.css">
+		<link rel="stylesheet" href="../../styles/footer.css">
+
+	</head>
+	<body>	
+    <div class="div-title">
+      <img class="img-center" src="../../images/projects/six-axes-robot-arm-stepper/embbeded/TitleCode.webp">
+      <h1 class="title-over-image">Programmation embarquée</h1>
+      <p class="subtitle-over-image">Conception d&#39;un controlleur de mouvement</p>
+    </div> 
+    <div class="navbar">
+			<div class="navbar-centering"></div>
+      <button class="navbar-item">
+			 <a class="navbar-item" href="../../index.html">Accueil</a>
+      </button>    
+			<button class="navbar-item">
+				<a class="navbar-item" href="../../index.html#projets">Projets</a>
+			</button>
+			<button class="navbar-item">
+				<a class="navbar-item" href="../../index.html#galerie">Galerie</a> 
+			</button>
+			<button class="navbar-item">
+				<a class="navbar-item" href="../../index.html#contact">Contact</a>   
+			</button>
+			<div class="navbar-centering"></div>	
+		</div>
+		<div class="block-dark">
+			<div class="block-centering">
+				<div class="block-flex-row">
+					<div>
+						<h2 class="h2-left">Objectifs</h2>
+						<p class="p-justified-right-margin">Au fil des années, j&#39;ai appris à mieux organiser et structurer mon code. Ce projet m&#39;a permis de concrétiser mes connaissances dans le langage C/C++. Je voulais que le robot bouge de manière similaire à un robot industriel, de sorte que tous les moteurs arrivent en même temps à une destination. De plus, je voulais approximer un mouvement linéaire de la pince (voir média à droite).</p>
+						<p class="p-justified-right-margin-bold">Le but était de réaliser un contrôle de mouvement simple à l&#39;aide de quelques concepts mathématiques tels que la trigonométrie, les matrices et les équations de mouvement (de base).</p>
+					</div>
+					  <video width="330" height="400" autoplay controls muted>
+              <source src="../../images/projects/six-axes-robot-arm-stepper/embbeded/LinearVideo.mp4" type="video/mp4">
+            </video> 
+				</div>
+			</div>		
+		</div>
+    <div class="block-clear">
+			<div class="block-centering"> 
+				<h2>Cinématique (Kinematics)</h2>
+				<img class="img-low-margin" src="../../images/projects/six-axes-robot-arm-stepper/embbeded/KinematicDiagram.webp" alt="Schéma de la cinématique">	
+				<p class="p-justified">La cinématique avant (foward kinematics) est un processus qui permet de trouver la position et l&#39;orientation de la pince à partir des angles de chaque joints du robot. On peut aussi réaliser le processus inverse avec la cinématique inverse (inverse kinematics). J&#39;utilise la trigonométrie et un peu d&#39;algèbre linéaire pour réaliser les calculs. Pour l&#39;implémentation en code, j&#39;ai décidé d&#39;utiliser la librairie <a href="https://eigen.tuxfamily.org/index.php?title=Main_Page" target="_blank">Eigen</a> pour effectuer les opérations avec les matrices (translation, rotation, etc.).</p>
+			</div>		
+		</div>
+    <div class="block-clear">
+			<div class="block-centering"> 
+				<h2>Mouvement par vitesse trapézoïdale</h2>
+				<img class="img-low-margin" src="../../images/projects/six-axes-robot-arm-stepper/embbeded/MoveGraph1.webp" alt="Graphique de mouvement 1">	
+				<p class="p-justified">Les moteurs du robots tournent avec une vitesse qui varie dans le temps selon une forme de trapèze. Ce type de mouvement peut être décomposé en trois phase:</p>
+				<ol>
+					<li>Accélération constante</li>
+					<li>Vitesse constante (cette phase n&#39;existe pas si la vitesse maximale n&#39;est pas atteinte).</li>
+          <li>Décélération constante</li>
+				</ol>
+				<p class="p-bold-question">Que se passe-t-il s'il y a plus de 1 moteur ?</p>
+				<img class="img-low-margin" src="../../images/projects/six-axes-robot-arm-stepper/embbeded/MoveGraph2.webp" alt="Graphique de mouvement 2">
+				<p class="p-justified">Pour contrôler plus de 1 moteur en même  temps, il faut considérer que le but est de s&#39;assurer que tous les moteurs partent au même instant et arrivent à leur destination en même temps. J&#39;ai imposé des vitesses maximales et des accélérations maximales abstraites différentes pour chaque moteur, ce qui veut dire que certains moteurs sont plus lents que d&#39;autres selon les déplacements requis pour arriver à destination.<br><br>Il faut commencer par trouver le temps maximal, qui correspond au moteur le plus lent. Cela veut dire que la vitesse trapézoïdale est calculée pour chaque moteur afin de trouver le temps maximal. Ensuite, les trajectoires de chaque moteur plus rapide que celui ayant le temps maximal sont recalculées (les vitesses sont diminuées) en fonction de ce temps.<br><br>Cet effet peut être remarqué dans les 4 graphes ci-dessus. Le tracé orange de position du graphique P1 et P2 a le même déplacement. Cependant, le graphe P2 présente un deuxième tracé (jaune) provenant d&#39;un moteur plus lent. Ceci cause le tracé orange de vitesse du graphique V2 à atteindre une vitesse constante inférieure à celle du tracé de V1 (voir graduation de l&#39;axe Y).</p>
+			</div>		
+		</div>
+		<div class="block-clear">
+			<div class="block-centering"> 
+				<h2>Approximation d&#39;un mouvement<br>linéaire</h2>
+				<img class="img-low-margin" src="../../images/projects/six-axes-robot-arm-stepper/embbeded/ArrowLinear.webp" alt="Approximation linéaire">	
+				<p class="p-justified">Pour arriver à faire bouger la pince du robot en ligne droite ou de la faire tourner autour d&#39;un point fixe, on peut subdiviser la trajectoire en plusieurs points, tel illustré ci-dessus. À chacun de ces points, il faut calculer les angles des joints (moteurs) avec la cinématique inverse. Cela permet de savoir les déplacements angulaires des moteurs entre chaque point.<br><br>Pour l&#39;instant, j&#39;ai choisi d&#39;approximer le mouvement en faisant bouger les moteurs à vitesse constante entre les points. Ce n&#39;est pas une solution optimale, car le mouvement n&#39;est pas fluide, ce qui cause des vibrations et des « coup » lors du départ et de l&#39;arrivée. Je suis obligé de garder la vitesse basse pour ces mouvements.</p>
+			</div>		
+		</div>
+		<div class="block-dark">
+			<div class="block-centering">
+				<div class="block-flex-row">
+					<div>
+						<h2 class="h2-left">Prochaine solution</h2>
+						<p class="p-justified-right-margin">Présentement, le programme embarqué sur le robot est limité quant à sa fonctionnalité. Entre autres, je ne tiens pas compte de la dynamique du robot, c&#39;est-à-dire que l&#39;inertie des pièces ainsi que les couples appliqués aux moteurs ne sont pas calculés. De plus, le système n&#39;est pas à boucle fermée (je fais la lecture des encodeurs absolus seulement lorsque le robot est immobile).</p>
+						<p class="p-justified-right-margin-bold">Je planifie implémenter une commande prédictive en créant un modèle mathématique de la dynamique du robot. Ce sera un système capable de s&#39;adapter en temps réel.</p>
+					</div>
+					  <video width="330" height="400" autoplay controls muted>
+              <source src="../../images/projects/six-axes-robot-arm-stepper/embbeded/LinearVideo.mp4" type="video/mp4">
+            </video> 
+				</div>
+			</div>		
+		</div>
+		<div class="footer-div">
+			<p class="footer-p">© 2025 Alexis Gabriel Aubut</p>
+		</div>	
+	</body>
+</html>
