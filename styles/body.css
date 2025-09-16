@@ -66,6 +66,10 @@ p {
     letter-spacing: 6%;
 }
 
+.p-title {
+    font-size: 32px;
+}
+
 .p-bold {
     font-size: 32px;
     font-weight: 400; 
@@ -187,4 +191,8 @@ iframe {
     font-weight: 600;
     align-items: center;
     font-size: 48px;
+}
+
+video {
+    margin: 0px;
 }
